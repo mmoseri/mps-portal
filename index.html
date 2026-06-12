@@ -123,24 +123,6 @@
     color: #ff7070;
     font-size: 13px;
   }
-  .demo-accounts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 24px;
-  }
-  .demo-account {
-    padding: 13px;
-    color: #bbb;
-    background: #151515;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    cursor: pointer;
-    text-align: left;
-  }
-  .demo-account:hover { border-color: rgba(29,185,84,.5); }
-  .demo-account strong { display: block; margin-bottom: 4px; color: var(--white); }
-  .demo-account small { color: #737373; }
   .portal-shell {
     height: 100vh;
     display: grid;
@@ -215,14 +197,6 @@
       <input id="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
       <button class="login-button" type="submit">Sign in to MPS</button>
       <div id="loginError" class="error" role="alert"></div>
-      <div class="demo-accounts" aria-label="Demo accounts">
-        <button class="demo-account" type="button" data-email="admin@mps.com" data-password="admin123">
-          <strong>Admin demo</strong><small>admin@mps.com</small>
-        </button>
-        <button class="demo-account" type="button" data-email="customer@mps.com" data-password="customer123">
-          <strong>Customer demo</strong><small>customer@mps.com</small>
-        </button>
-      </div>
     </form>
   </section>
 </main>
@@ -288,14 +262,6 @@ function signIn(email, password) {
 loginForm.addEventListener("submit", event => {
   event.preventDefault();
   signIn(emailInput.value, passwordInput.value);
-});
-
-document.querySelectorAll(".demo-account").forEach(button => {
-  button.addEventListener("click", () => {
-    emailInput.value = button.dataset.email;
-    passwordInput.value = button.dataset.password;
-    signIn(emailInput.value, passwordInput.value);
-  });
 });
 
 document.getElementById("logoutButton").addEventListener("click", () => {
